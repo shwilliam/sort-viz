@@ -1,6 +1,6 @@
 const $el = document.getElementById('viz')
 
-const VIZ_WIDTH = 900
+const VIZ_WIDTH = 400
 const VIZ_HEIGHT = 400
 const BAR_WIDTH = 5
 const BAR_AMOUNT = Math.floor(VIZ_WIDTH / BAR_WIDTH)
@@ -14,9 +14,7 @@ while (i < BAR_AMOUNT) {
   i += 1
 }
 
-arr.forEach(val => createBar(val))
-
-function createBar(val) {
+const createBar = val => {
   const bar = document.createElement('span')
   bar.classList.add('bar')
   bar.style.height = `${VIZ_HEIGHT * val}px`
@@ -26,6 +24,8 @@ function createBar(val) {
   $el.appendChild(bar)
   bars.push(bar)
 }
+
+arr.forEach(val => createBar(val))
 
 const render = bars => {
   bars.forEach((bar, i) => {
@@ -37,6 +37,7 @@ const render = bars => {
 
 const wait = (t = 10) => new Promise(res => setTimeout(res, t))
 
+// quicksort
 const quickSort = async (arr, start, end) => {
   if (start >= end) return
 
@@ -46,6 +47,8 @@ const quickSort = async (arr, start, end) => {
     quickSort(arr, start, index - 1),
     quickSort(arr, index, end),
   ])
+
+  alert('🎊')
 }
 
 const partition = async (arr, start, end) => {
@@ -73,4 +76,25 @@ const partition = async (arr, start, end) => {
   return currentIndex
 }
 
-quickSort(arr, 0, arr.length - 1)
+// quickSort(arr, 0, arr.length - 1)
+
+// bubble sort
+const bubbleSort = async arr => {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      const currentVal = arr[j]
+      const nextVal = arr[j + 1]
+      if (currentVal > nextVal) {
+        arr[j + 1] = currentVal
+        arr[j] = nextVal
+      }
+
+      await wait(0)
+      render(bars)
+    }
+  }
+  alert('🎊')
+}
+
+bubbleSort(arr)
+
