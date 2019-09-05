@@ -75,10 +75,8 @@
 
     let index = await partition(arr, start, end)
 
-    await Promise.all([
-      quickSort(arr, start, index - 1),
-      quickSort(arr, index, end),
-    ])
+    await quickSort(arr, start, index - 1)
+    await quickSort(arr, index, end)
   }
 
   async function partition (arr, start, end) {
