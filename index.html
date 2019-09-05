@@ -8,8 +8,10 @@
   <link href="./favicon.ico" ref="icon" type="image/x-icon"></link>
   <link href="./style.css" rel="stylesheet" type="text/css"></link>
 </head>
-<body>
-  <header class="site-header">
+<body class="site">
+  <header class="site__header">
+    <h1 class="site__title">Sorting Visualization</h1>
+
     <form id="algorithm-form" class="algorithm-form" action="">
       <label for="algorithm-select">Choose a sorting algorithm:</label>
 
@@ -38,7 +40,7 @@
     <button id="randomize" type="button">randomize</button>
   </header>
 
-  <main>
+  <main id="site__content" class="site__content">
     <div id="viz" class="viz"></div>
   </main>
 

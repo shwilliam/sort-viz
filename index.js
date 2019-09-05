@@ -1,4 +1,5 @@
 (() => {
+  const $siteContent = document.getElementById('site__content')
   const $viz = document.getElementById('viz')
   const $algoForm = document.getElementById('algorithm-form')
   const $algoFormSelect = document.getElementById('algorithm-select')
@@ -7,7 +8,7 @@
   const $barsFormInput = document.getElementById('bars-form__input')
 
   const VIZ_WIDTH = window.innerWidth
-  const VIZ_HEIGHT = 400
+  const VIZ_HEIGHT = $siteContent.clientHeight / 2
   let BAR_AMOUNT = Math.floor(VIZ_WIDTH / 20)
 
   const bars = []

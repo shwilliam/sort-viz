@@ -2,20 +2,45 @@ html, body {
   font-family: monospace;
   font-size: 18px;
   margin: 0 auto;
-  background-color: #fefefe;
+  color: #fefefe;
+  background-color: #222;
 }
 
-button, select {
+button, select, input {
   font: inherit;
   font-size: 0.8rem;
   cursor: pointer;
+  color: #fefefe;
+  background-color: #222;
+  border: 1px solid #fefefe;
+  border-radius: 2px;
 }
 
-.site-header {
-  padding: 1rem;
+.site {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site__header,
+.site__content {
+  padding: 1rem 2rem;
+}
+
+.site__header {
   border-bottom: 2px dashed #ccc;
   display: flex;
   flex-flow: wrap;
+}
+
+.site__title {
+  width: 100%;
+}
+
+.site__content {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
 }
 
 .algorithm-form {
@@ -35,10 +60,12 @@ button, select {
 }
 
 .viz {
+  position: relative;
+  top: 10%;
+  flex-grow: 1;
   display: flex;
   align-items: flex-end;
   justify-content: stretch;
-  padding: 1rem;
   text-align: center;
   overflow-x: scroll;
   white-space: nowrap;
