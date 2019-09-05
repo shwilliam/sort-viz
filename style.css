@@ -30,6 +30,10 @@ button, select {
   padding: 0;
 }
 
+.bars-form {
+  width: 100%;
+}
+
 .viz {
   display: flex;
   align-items: flex-end;

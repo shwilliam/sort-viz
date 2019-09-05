@@ -14,13 +14,25 @@
       <label for="algorithm-select">Choose a sorting algorithm:</label>
 
       <fieldset class="algorithm-form__fieldset">
-        <select id="algorithm-select">
+        <select id="algorithm-select" name="algorithm-form__select">
           <option value="bubble">Bubble sort</option>
           <option value="quick" checked>Quick sort</option>
         </select>
 
         <button type="submit">sort</button>
       </fieldset>
+    </form>
+
+    <form id="bars-form" class="bars-form" action="">
+      <label for="bars-form__input">Adjust the amount of bars:</label>
+      <input
+        placeholder="20"
+        min="5"
+        step="5"
+        id="bars-form__input"
+        name="bars-form__input" 
+        type="number" 
+      >
     </form>
 
     <button id="randomize" type="button">randomize</button>
