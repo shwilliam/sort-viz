@@ -4,26 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>🧨</title>
-  <style>
-    #viz { overflow-x: scroll; white-space: nowrap; }
-    .bar { display: inline-block; } </style>
+  <title>Sort visualization</title>
+  <link href="./favicon.ico" ref="icon" type="image/x-icon"></link>
+  <link href="./style.css" rel="stylesheet" type="text/css"></link>
 </head>
 <body>
-  <form action="" id="algorithm-form">
-    <label for="algorithm-select">Choose a sorting algorithm:</label>
+  <header class="site-header">
+    <form id="algorithm-form" class="algorithm-form" action="">
+      <label for="algorithm-select">Choose a sorting algorithm:</label>
 
-    <select id="algorithm-select">
-      <option value="bubble">Bubble sort</option>
-      <option value="quick" checked>Quick sort</option>
-    </select>
+      <fieldset class="algorithm-form__fieldset">
+        <select id="algorithm-select">
+          <option value="bubble">Bubble sort</option>
+          <option value="quick" checked>Quick sort</option>
+        </select>
 
-    <button type="submit">sort</button>
-  </form>
+        <button type="submit">sort</button>
+      </fieldset>
+    </form>
 
-  <button id="randomize" type="button">randomize</button>
+    <button id="randomize" type="button">randomize</button>
+  </header>
 
-  <section id="viz"></section>
+  <main>
+    <div id="viz" class="viz"></div>
+  </main>
 
   <script src="./index.js"></script>
 </body>

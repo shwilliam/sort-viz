@@ -4,10 +4,9 @@
   const $algoFormSelect = document.getElementById('algorithm-select')
   const $randomize = document.getElementById('randomize')
 
-  const VIZ_WIDTH = 400
+  const VIZ_WIDTH = window.innerWidth || 300
   const VIZ_HEIGHT = 400
-  const BAR_WIDTH = 5
-  const BAR_AMOUNT = Math.floor(VIZ_WIDTH / BAR_WIDTH)
+  const BAR_AMOUNT = Math.floor(VIZ_WIDTH / 10)
 
   const bars = []
   let arr = []
@@ -49,10 +48,8 @@
 
     const createBar = val => {
       const bar = document.createElement('span')
-      bar.classList.add('bar')
+      bar.classList.add('viz__bar')
       bar.style.height = `${VIZ_HEIGHT * val}px`
-      bar.style.width = `${BAR_WIDTH}px`
-      bar.style.translate = `translateX(${BAR_WIDTH * i})`
       bar.style.backgroundColor = `hsl(${100 * val + 180}, 100%, 50%)`
       container.appendChild(bar)
       bars.push(bar)
