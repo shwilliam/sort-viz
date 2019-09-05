@@ -2,6 +2,7 @@
   const $viz = document.getElementById('viz')
   const $algoForm = document.getElementById('algorithm-form')
   const $algoFormSelect = document.getElementById('algorithm-select')
+  const $randomize = document.getElementById('randomize')
 
   const VIZ_WIDTH = 400
   const VIZ_HEIGHT = 400
@@ -10,6 +11,8 @@
 
   const bars = []
   let arr = []
+
+  let recentlyRandomized = true
 
   arr = randomizeBars($viz)
 
@@ -20,8 +23,18 @@
 
   $algoForm.addEventListener('submit', e => {
     e.preventDefault()
-    const arr = randomizeBars($viz)
+
+    console.log(recentlyRandomized)
+    if (!recentlyRandomized) {
+      arr = randomizeBars($viz)
+    }
     sortFns[$algoFormSelect.value](arr)
+    recentlyRandomized = false
+  })
+
+  $randomize.addEventListener('click', () => {
+    recentlyRandomized = true
+    randomizeBars($viz)
   })
 
   function randomizeBars(container) {
