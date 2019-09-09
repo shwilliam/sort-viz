@@ -1,4 +1,4 @@
-(() => {
+;(() => {
   const $siteContent = document.getElementById('site__content')
   const $viz = document.getElementById('viz')
   const $algoForm = document.getElementById('algorithm-form')
@@ -19,8 +19,9 @@
   arr = randomizeBars($viz)
 
   const sortFns = {
-    bubble: (arr) => bubbleSort(arr),
-    quick: (arr) => quickSort(arr, 0, arr.length - 1)
+    bubble: arr => bubbleSort(arr),
+    quick: arr => quickSort(arr, 0, arr.length - 1),
+    insertion: arr => insertionSort(arr),
   }
 
   $algoForm.addEventListener('submit', e => {
@@ -43,6 +44,7 @@
   $barsFormInput.addEventListener('change', e => {
     BAR_AMOUNT = e.target.value
     arr = randomizeBars($viz)
+    recentlyRandomized = true
   })
 
   function randomizeBars(container) {
@@ -76,7 +78,7 @@
     })
   }
 
-  async function quickSort (arr, start, end) {
+  async function quickSort(arr, start, end) {
     if (start >= end) return
 
     let index = await partition(arr, start, end)
@@ -85,7 +87,7 @@
     await quickSort(arr, index, end)
   }
 
-  async function partition (arr, start, end) {
+  async function partition(arr, start, end) {
     let currentIndex = start
     let currentVal = arr[end]
 
@@ -110,7 +112,7 @@
     return currentIndex
   }
 
-  async function bubbleSort (arr) {
+  async function bubbleSort(arr) {
     for (let i = 0; i < arr.length; i++) {
       for (let j = 0; j < arr.length - i - 1; j++) {
         const currentVal = arr[j]
@@ -126,5 +128,21 @@
     }
   }
 
-  function wait (t = 10) { return new Promise(res => setTimeout(res, t)) }
+  async function insertionSort(arr) {
+    for (let i = 1; i < arr.length; i++) {
+      for (let j = 0; j < i; j++) {
+        if (arr[i] < arr[j]) {
+          const [currentVal] = arr.splice(i, 1)
+          arr.splice(j, 0, currentVal)
+        }
+
+        await wait(0)
+        render($viz.children)
+      }
+    }
+  }
+
+  function wait(t = 10) {
+    return new Promise(res => setTimeout(res, t))
+  }
 })()
